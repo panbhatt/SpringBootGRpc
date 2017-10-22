@@ -1,0 +1,26 @@
+syntax="proto3";
+
+option java_multiple_files = true;
+package org.exampledriven.grpc.services;
+
+message EmployeeFetch {
+  int32 id = 1;
+}
+
+message Address {
+  string street = 1;
+  string city = 2;
+}
+
+message Employee {
+  int32 id = 1;
+  string name = 2;
+  repeated Address addresses = 3;
+}
+
+
+service EmployeeService {
+
+  rpc getEmployee(EmployeeFetch) returns (Employee);
+//  rp  addEmployee(Employee) return (Employee) ;
+}
